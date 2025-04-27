@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Tabs - Tabular</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- DEVELOPER: Aftab Bhatti, IS117-002, Spring 2025 -->
+  </head>
+
+  <body class="bg-dark text-light">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Tabular</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Search
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="search.html">Search Page</a></li>
+                <li><a class="dropdown-item" href="how-it-works.html">How It Works</a></li>
+                <li><a class="dropdown-item" href="tabs.html">Tab Listing</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="donate.html">Donate</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Search Section -->
+    <section class="py-5">
+      <div class="container text-center">
+        <h2 class="mb-4">Search for Guitar Tabs</h2>
+        <p class="mb-5">Type a song or artist and press Enter for Ultimate Guitar, or use the buttons below.</p>
+
+        <!-- Shared Search Input -->
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <input
+              type="text"
+              id="tabSearchInput"
+              class="form-control form-control-lg mb-3"
+              placeholder="Enter song or artist..."
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Buttons Section -->
+        <div class="row justify-content-center">
+          <div class="col-md-6 d-flex flex-wrap justify-content-center gap-2">
+
+            <!-- Ultimate Guitar -->
+            <form action="https://www.ultimate-guitar.com/search.php" method="get" target="_blank" onsubmit="this.value.value = document.getElementById('tabSearchInput').value">
+              <input type="hidden" name="search_type" value="title" />
+              <input type="hidden" name="value" />
+              <button type="submit" class="btn btn-outline-light">Ultimate Guitar</button>
+            </form>
+
+            <!-- YouTube -->
+            <form action="https://www.youtube.com/results" method="get" target="_blank" onsubmit="this.search_query.value = document.getElementById('tabSearchInput').value + ' guitar tab'">
+              <input type="hidden" name="search_query" />
+              <button type="submit" class="btn btn-outline-light">YouTube</button>
+            </form>
+
+            <!-- Google -->
+            <form action="https://www.google.com/search" method="get" target="_blank" onsubmit="this.q.value = document.getElementById('tabSearchInput').value + ' guitar tab'">
+              <input type="hidden" name="q" />
+              <button type="submit" class="btn btn-outline-light">Google</button>
+            </form>
+
+          </div>
+        </div>
+
+        <p class="mt-4 small text-muted">Pro tip: Pressing Enter defaults to Ultimate Guitar search.</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-4 mt-5 sticky-bottom">
+      <div class="container text-center">
+        <p class="mb-0">&copy; 2025 Tabular. Aftab Bhatti. All rights reserved.</p>
+        <small><a href="#" class="text-decoration-none text-light">Terms of Use</a> | <a href="#" class="text-decoration-none text-light">Privacy Policy</a></small>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
